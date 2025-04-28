@@ -86,6 +86,7 @@ export async function setSessionCookie(idToken: string) {
 
 export async function getCurrentUser(): Promise<User | null> {
   const cookieStore = await cookies();
+
   const sessionCookie = cookieStore.get("session")?.value;
 
   if (!sessionCookie) return null;
@@ -106,6 +107,7 @@ export async function getCurrentUser(): Promise<User | null> {
     } as User;
   } catch (e) {
     console.log(e);
+
     return null;
   }
 }
